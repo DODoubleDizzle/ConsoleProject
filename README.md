@@ -2,9 +2,9 @@
 Group Work for Module 426
 
 ## Contributors
+- **Dodo**
 - Fabio
 - Giotsche
-- Dodo
 - Shahmir
 - Rahel
 - Philipp
