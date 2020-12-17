@@ -6,5 +6,5 @@ Group Work for Module 426
 - Fabio
 - Giotsche
 - Shahmir
-- Rahel
 - Philipp
+- Rahel
