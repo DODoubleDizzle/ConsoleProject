@@ -1,13 +1,14 @@
 package Console;
 
-import Invoker.CommandInvoker;
-
 public class Console {
     public Console(){
     }
-    public void start(){
+    public void Start(){
         String userInput = "readline";
-        CommandInvoker commandInvoker = new CommandInvoker();
-        commandInvoker.executeCommand(userInput);
+        Invoker invoker = new Invoker();
+        invoker.executeCommand(userInput);
+    }
+    private void ProcessInput(){
+        //Nimmt input entgegen
     }
 }

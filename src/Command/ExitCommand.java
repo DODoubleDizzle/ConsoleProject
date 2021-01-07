@@ -1,8 +1,8 @@
 package Command;
 
-public class ExitCommand implements ICommand {
+public class ExitCommand extends Command {
     @Override
     public void execute() {
-        return;
+
     }
 }

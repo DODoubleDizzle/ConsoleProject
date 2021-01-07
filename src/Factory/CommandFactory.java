@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CommandFactory {
 
-    /**public static Command.ICommand getCommand(String command){
+    /**public static ICommand getCommand(String command){
 
         return new CdCommand();
     }**/
