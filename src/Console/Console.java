@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Console {
-    String path = "C:/>";
+    String path = "C:\\";
     String userInput;
 
     public Console(){
@@ -23,7 +23,7 @@ public class Console {
     }
     private void ProcessInput() throws IOException {
         //Beispiel: C:\Users\turze\Pictures>
-        System.out.println(path);
+        System.out.print(path + " " + ">");
         userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
     }
 }
