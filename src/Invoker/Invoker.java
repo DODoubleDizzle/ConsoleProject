@@ -5,9 +5,11 @@ import Command.ExitCommand;
 import Parser.Parser;
 
 import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Invoker {
-    public static Dictionary<String, Command> commands;
+    public static Map<String, Command> commands = new HashMap<>();
 
     public Invoker(){
         commands.put("Exit", new ExitCommand());
