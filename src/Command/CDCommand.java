@@ -1,8 +1,9 @@
 package Command;
 
-public class ExitCommand extends Command {
+public class CDCommand extends Command {
+
     @Override
     public void execute(String input) {
-        System.exit(0);
+
     }
 }

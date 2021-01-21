@@ -2,6 +2,7 @@ package Invoker;
 
 import Command.Command;
 import Command.ExitCommand;
+import Command.CDCommand;
 import Parser.Parser;
 
 import java.util.Dictionary;
@@ -13,9 +14,15 @@ public class Invoker {
 
     public Invoker(){
         commands.put("Exit", new ExitCommand());
+        commands.put("cd", new CDCommand());
     }
 
     public void executeCommand(String userInput) {
-        Parser.ParseCommand(userInput);
+        Command command = Parser.ParseCommand(userInput);
+        if (ExitCommand.class.equals(command.getClass())) {
+            command.execute("");
+        }else {
+            command.execute(userInput.split(" ")[1]);
+        }
     }
 }
