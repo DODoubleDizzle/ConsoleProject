@@ -21,10 +21,8 @@ public class Invoker {
         if (command != null) {
             if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass())) {
                 command.execute("");
-            } else if (MKDIRCommand.class.equals(command.getClass())) {
+            } else{
                 command.execute(userInput.split(" ")[1]);
-            } else {
-
             }
         }
     }
