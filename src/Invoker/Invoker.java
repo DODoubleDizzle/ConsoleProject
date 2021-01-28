@@ -17,6 +17,7 @@ public class Invoker {
         commands.put("mkdir", new MKDIRCommand());
         commands.put("del", new DELCommand());
         commands.put("ver", new VERCommand());
+        commands.put("ren", new RENCommand());
     }
 
     public void executeCommand(String userInput) {
@@ -25,11 +26,13 @@ public class Invoker {
             if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass()) || VERCommand.class.equals(command.getClass())) {
                 command.execute("");
                 return;
+            } else if (RENCommand.class.equals(command.getClass())) {
+                command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2]);
             } else {
                 command.execute(userInput.split(" ")[1]);
                 return;
             }
-        }else{
+        } else {
             new ConsoleOutputWriter().printLine("Command not found");
         }
     }
