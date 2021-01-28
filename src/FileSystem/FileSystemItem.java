@@ -15,7 +15,9 @@ public abstract class FileSystemItem {
 
     public String getPath() {
         path = "";
-        getPathRecursion(parentDirectory);
+        if(parentDirectory != null) {
+            getPathRecursion(parentDirectory);
+        }
         path += this.getName();
         return path;
     }

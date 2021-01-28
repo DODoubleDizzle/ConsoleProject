@@ -34,9 +34,7 @@ import java.io.InputStreamReader;
     }
     private void ProcessInput() throws IOException {
 
-        currentDirectory = new Directory();
-        currentDirectory.setName("CurrentDirectory");
-        currentDirectory.setParentDirectory(rootDirectory);
+        currentDirectory = rootDirectory;
 
         while(true) {
             new ConsoleOutputWriter().print(drive.getLabel() + currentDirectory.getPath() + "> ");
