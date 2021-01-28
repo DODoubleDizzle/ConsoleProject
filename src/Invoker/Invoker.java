@@ -20,7 +20,7 @@ public class Invoker {
     }
 
     public void executeCommand(String userInput) {
-        Command command = Parser.ParseCommand(userInput.toLowerCase());
+        Command command = Parser.parseCommand(userInput.toLowerCase());
         if (command != null) {
             if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass()) || VERCommand.class.equals(command.getClass())) {
                 command.execute("");
