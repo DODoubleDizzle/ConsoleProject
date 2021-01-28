@@ -11,7 +11,10 @@ public class DIRCommand extends Command {
         if(Console.getCurrentDirectory().getFileSystemItems().size() != 0) {
             for (FileSystemItem fileSystemItem : Console.getCurrentDirectory().getFileSystemItems()) {
                 new ConsoleOutputWriter().PrintLine(fileSystemItem.getName());
+                return;
             }
+        } else {
+            new ConsoleOutputWriter().PrintLine("There are no files to see here!");
         }
     }
 }
