@@ -1,9 +1,6 @@
 package Invoker;
 
-import Command.CDCommand;
-import Command.Command;
-import Command.DIRCommand;
-import Command.ExitCommand;
+import Command.*;
 import Parser.Parser;
 
 import java.util.HashMap;
@@ -16,6 +13,7 @@ public class Invoker {
         commands.put("exit", new ExitCommand());
         commands.put("cd", new CDCommand());
         commands.put("dir", new DIRCommand());
+        commands.put("mkdir", new MKDIRCommand());
     }
 
     public void executeCommand(String userInput) {
