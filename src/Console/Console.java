@@ -31,8 +31,7 @@ public class Console {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Invoker invoker = new Invoker();
-        invoker.executeCommand(userInput);
+
     }
     private void ProcessInput() throws IOException {
 
@@ -43,8 +42,12 @@ public class Console {
         currentDirectory.addFileSystemItem(asd);
         currentDirectory.setParentDirectory(rootDirectory);
 
-        new ConsoleOutputWriter().Print(drive.getLabel() + currentDirectory.getPath() + "> ");
-        userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
+        while(true) {
+            new ConsoleOutputWriter().Print(drive.getLabel() + currentDirectory.getPath() + "> ");
+            userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
+            Invoker invoker = new Invoker();
+            invoker.executeCommand(userInput);
+        }
     }
 
     public static Directory getCurrentDirectory(){
