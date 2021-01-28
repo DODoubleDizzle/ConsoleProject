@@ -2,6 +2,7 @@ package Console;
 
 import FileSystem.Directory;
 import FileSystem.Drive;
+import FileSystem.File;
 import FileSystem.FileSystemItem;
 import Invoker.Invoker;
 
@@ -13,7 +14,7 @@ public class Console {
     FileSystemItem fileSystemItem;
     Drive drive;
     String userInput;
-    Directory currentDirectory;
+    static Directory currentDirectory;
     Directory rootDirectory;
 
     public Console(){
@@ -36,10 +37,17 @@ public class Console {
     private void ProcessInput() throws IOException {
 
         currentDirectory = new Directory();
-        currentDirectory.setName("asd");
+        currentDirectory.setName("CurrentDirectory");
+        File asd = new File();
+        asd.setName("File");
+        currentDirectory.addFileSystemItem(asd);
         currentDirectory.setParentDirectory(rootDirectory);
 
         new ConsoleOutputWriter().Print(drive.getLabel() + currentDirectory.getPath() + "> ");
         userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
+    }
+
+    public static Directory getCurrentDirectory(){
+        return  currentDirectory;
     }
 }
