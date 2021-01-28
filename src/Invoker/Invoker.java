@@ -1,6 +1,7 @@
 package Invoker;
 
 import Command.*;
+import Console.ConsoleOutputWriter;
 import Parser.Parser;
 
 import java.util.HashMap;
@@ -22,9 +23,13 @@ public class Invoker {
         if (command != null) {
             if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass())) {
                 command.execute("");
-            } else{
+                return;
+            } else {
                 command.execute(userInput.split(" ")[1]);
+                return;
             }
+        }else{
+            new ConsoleOutputWriter().printLine("Command not found");
         }
     }
 }
