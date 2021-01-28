@@ -14,6 +14,7 @@ public class Invoker {
         commands.put("cd", new CDCommand());
         commands.put("dir", new DIRCommand());
         commands.put("mkdir", new MKDIRCommand());
+        commands.put("del", new DELCommand());
     }
 
     public void executeCommand(String userInput) {
