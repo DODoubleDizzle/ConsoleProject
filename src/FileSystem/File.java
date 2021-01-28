@@ -1,5 +1,5 @@
 package FileSystem;
 
-public class File {
+public class File extends FileSystemItem {
     String content;
 }

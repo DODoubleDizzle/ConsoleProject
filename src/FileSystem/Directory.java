@@ -1,5 +1,20 @@
 package FileSystem;
 
-public class Directory {
+import java.util.ArrayList;
+
+public class Directory extends FileSystemItem{
+    ArrayList<FileSystemItem> fileSystemItems;
+
+    public ArrayList<FileSystemItem> getFileSystemItems() {
+        return fileSystemItems;
+    }
+
+    public void setFileSystemItems(ArrayList<FileSystemItem> fileSystemItems) {
+        this.fileSystemItems = fileSystemItems;
+    }
+
+    public void addFileSystemItem(FileSystemItem fileSystemItems) {
+        this.fileSystemItems.add(fileSystemItems);
+    }
 
 }
