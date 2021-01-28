@@ -53,4 +53,7 @@ public class Console {
     public static Directory getCurrentDirectory(){
         return  currentDirectory;
     }
+    public static void setCurrentDirectory(Directory directory){
+        currentDirectory = directory;
+    }
 }
