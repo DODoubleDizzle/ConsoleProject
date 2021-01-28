@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Console {
+    public class Console {
     FileSystemItem fileSystemItem;
     Drive drive;
     String userInput;
@@ -43,7 +43,7 @@ public class Console {
         currentDirectory.setParentDirectory(rootDirectory);
 
         while(true) {
-            new ConsoleOutputWriter().Print(drive.getLabel() + currentDirectory.getPath() + "> ");
+            new ConsoleOutputWriter().print(drive.getLabel() + currentDirectory.getPath() + "> ");
             userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
             Invoker invoker = new Invoker();
             invoker.executeCommand(userInput);
