@@ -26,13 +26,13 @@ import java.io.InputStreamReader;
             rootDirectory.setName("Root");
             drive.addFileSystemItem(rootDirectory);
 
-            ProcessInput();
+            processInput();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    private void ProcessInput() throws IOException {
+    private void processInput() throws IOException {
 
         currentDirectory = new Directory();
         currentDirectory.setName("CurrentDirectory");
