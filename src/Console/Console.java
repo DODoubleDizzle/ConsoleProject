@@ -2,7 +2,6 @@ package Console;
 
 import FileSystem.Directory;
 import FileSystem.Drive;
-import FileSystem.File;
 import FileSystem.FileSystemItem;
 import Invoker.Invoker;
 
@@ -37,9 +36,6 @@ import java.io.InputStreamReader;
 
         currentDirectory = new Directory();
         currentDirectory.setName("CurrentDirectory");
-        File asd = new File();
-        asd.setName("File");
-        currentDirectory.addFileSystemItem(asd);
         currentDirectory.setParentDirectory(rootDirectory);
 
         while(true) {
