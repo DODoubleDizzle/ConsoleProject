@@ -33,7 +33,7 @@ public abstract class FileSystemItem {
     }
 
     public void getPathRecursion(Directory directory){
-        path += directory.getName() + "\\";
+        path = directory.getName() + "\\" + path;
         if(directory.parentDirectory != null){
             getPathRecursion(directory.parentDirectory);
         }
