@@ -22,47 +22,47 @@ public class CLRCommand extends  Command {
         switch (input) {
             case "red": {
                 String color = ANSI_RED;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "blue": {
                 String color = ANSI_BLUE;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "green": {
                 String color = ANSI_GREEN;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "yellow": {
                 String color = ANSI_YELLOW;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "black": {
                 String color = ANSI_BLACK;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "white": {
                 String color = ANSI_WHITE;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "purple": {
                 String color = ANSI_PURPLE;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "cyan": {
                 String color = ANSI_CYAN;
-                System.out.println(color + changeText);
+                outputWriter.printLine(color + changeText);
                 break;
             }
             default: {
                 String color = ANSI_RESET;
-                System.out.println(color + "Something went wrong!");
+                outputWriter.printLine("Something went wrong!");
                 break;
             }
         }
