@@ -14,18 +14,23 @@ class CDCommandTest {
 
         String newDirName = "newDir";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
+        testConsole.setOutputWriter(testOutPutWriter);
 
         // Act
+        testConsole.setToProcess(false);
+        testConsole.Start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         testConsole.setUserInput("cd " + newDirName);
         testConsole.runCommand();
-        testConsole.setOutputWriter(testOutPutWriter);
         testConsole.setUserInput("dir");
         testConsole.runCommand();
+        String consoleOutput = testOutPutWriter.getOutput();
+        testConsole.setUserInput("exit");
+
 
         // Assert
-        assertEquals(newDirName, testOutPutWriter.getOutput());
+        assertEquals(newDirName, consoleOutput);
 
     }
 }
