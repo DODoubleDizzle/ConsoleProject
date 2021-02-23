@@ -51,6 +51,5 @@ class CDCommandTest {
 
         // Assert
         assertEquals("Directory not found!", consoleOutput);
-
     }
 }
