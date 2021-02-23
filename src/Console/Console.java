@@ -46,7 +46,7 @@ public class Console {
 
     public void runCommand(){
         Invoker invoker = new Invoker();
-        invoker.executeCommand(userInput);
+        invoker.executeCommand(userInput, outputWriter);
     }
 
     public static Directory getCurrentDirectory() {
@@ -67,5 +67,9 @@ public class Console {
 
     public void setToProcess(boolean toProcess) {
         this.toProcess = toProcess;
+    }
+
+    public IOutputWriter getOutputWriter() {
+        return outputWriter;
     }
 }

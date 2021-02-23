@@ -15,7 +15,7 @@ public class Invoker {
         commands = CommandFactory.getCommands();
     }
 
-    public void executeCommand(String userInput) {
+    public void executeCommand(String userInput, IOutputWriter outputWriter) {
         Command command = Parser.parseCommand(userInput.toLowerCase());
         ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
         if (command != null) {
@@ -26,7 +26,7 @@ public class Invoker {
 
                 try {
                     command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
-                } catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("Wrong Input");
                 }
 
@@ -35,7 +35,7 @@ public class Invoker {
                 return;
             }
         } else {
-            new ConsoleOutputWriter().printLine("Command not found");
+            outputWriter.printLine("Command not found");
         }
     }
 }

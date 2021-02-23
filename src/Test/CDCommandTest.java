@@ -26,11 +26,31 @@ class CDCommandTest {
         testConsole.setUserInput("dir");
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();
-        testConsole.setUserInput("exit");
-
 
         // Assert
-        assertEquals(newDirName, consoleOutput);
+        assertEquals("There are no files to see here!", consoleOutput);
+
+    }
+
+    @Test
+    void noDirectoryFound() {
+        // Arrange
+        Console testConsole = new Console();
+
+        String newDirName = "newDir";
+        TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
+        testConsole.setOutputWriter(testOutPutWriter);
+
+        // Act
+        testConsole.setToProcess(false);
+        testConsole.Start();
+        testConsole.setUserInput("cd " + newDirName);
+        testConsole.runCommand();
+
+        String consoleOutput = testOutPutWriter.getOutput();
+
+        // Assert
+        assertEquals("Directory not found!", consoleOutput);
 
     }
 }
