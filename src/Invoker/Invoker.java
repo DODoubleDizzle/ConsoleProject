@@ -23,10 +23,9 @@ public class Invoker {
                 command.execute("", outputWriter);
                 return;
             } else if (commands.get("ren").getClass().equals(command.getClass())) {
-
                 try {
                     command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
-                } catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("Wrong Input");
                 }
 
@@ -35,7 +34,7 @@ public class Invoker {
                 return;
             }
         } else {
-            new ConsoleOutputWriter().printLine("Command not found");
+            outputWriter.printLine("Command not found");
         }
     }
 }
