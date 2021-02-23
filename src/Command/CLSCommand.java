@@ -2,9 +2,12 @@ package Command;
 
 import Console.IOutputWriter;
 
+import java.io.IOException;
+
 public class CLSCommand extends Command {
     @Override
     public void execute(String input, IOutputWriter outputWriter) {
-        //Clears the Console
+        //locked
+        System.out.println("Coming soon!");
     }
 }
