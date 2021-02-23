@@ -16,6 +16,7 @@ public class CommandFactory {
         commandList.put("ver", new VERCommand());
         commandList.put("ren", new RENCommand());
         commandList.put("cls", new CLSCommand());
+        commandList.put("clr", new CLRCommand());
         return commandList;
     }
 }
