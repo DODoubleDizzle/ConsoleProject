@@ -18,7 +18,7 @@ public class CDCommand extends Command {
                     return;
                 }
             }
-            System.out.println("Directory not found");
+            outputWriter.printLine("Directory not found!");
         }
     }
 }
