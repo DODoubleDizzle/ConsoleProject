@@ -53,7 +53,7 @@ public class CLRCommand extends  Command {
                 break;
             }
             default: {
-                System.out.println(ANSI_RESET + "Something went wrong!");
+                System.out.println(ANSI_RESET + "Something went horribly wrong!");
                 break;
             }
         }

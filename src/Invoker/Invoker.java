@@ -1,7 +1,6 @@
 package Invoker;
 
 import Command.Command;
-import Console.ConsoleOutputWriter;
 import Console.IOutputWriter;
 import Factory.CommandFactory;
 import Parser.Parser;
@@ -22,7 +21,8 @@ public class Invoker {
             if (commands.get("exit").getClass().equals(command.getClass()) || commands.get("dir").getClass().equals(command.getClass()) || commands.get("ver").getClass().equals(command.getClass()) || commands.get("cls").getClass().equals(command.getClass())) {
                 command.execute("", outputWriter);
                 return;
-            } else if (commands.get("ren").getClass().equals(command.getClass())) {
+            } else if (commands.get("ren").getClass().equals(command.getClass()) || commands.get("move").getClass().equals(command.getClass())) {
+
                 try {
                     command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
                 } catch (Exception e) {

@@ -1,4 +1,4 @@
-package Command;
+ package Command;
 
 import Console.IOutputWriter;
 
@@ -8,3 +8,4 @@ public class VERCommand extends  Command{
         outputWriter.printLine(System.getProperty("os.name") + " Version: " + System.getProperty("os.version"));
     }
 }
+
