@@ -23,7 +23,13 @@ public class Invoker {
                 command.execute("", outputWriter);
                 return;
             } else if (commands.get("ren").getClass().equals(command.getClass())) {
-                command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
+
+                try {
+                    command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
+                } catch (Exception e){
+                    System.out.println("Wrong Input");
+                }
+
             } else {
                 command.execute(userInput.split(" ")[1], outputWriter);
                 return;
