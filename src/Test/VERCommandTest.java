@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class VERCommandTest {
 
     @Test
-    void execute() {
+    void verwithNoInput() {
         //
         VERCommand verCommand = new VERCommand();
-        String input = "ver";
+        String input = "";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
 
         //
