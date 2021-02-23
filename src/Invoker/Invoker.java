@@ -25,7 +25,7 @@ public class Invoker {
                 try {
                     command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    outputWriter.printLine("Wrong Input");
                 }
             } else {
                 try {
