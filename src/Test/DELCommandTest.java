@@ -28,7 +28,7 @@ class DELCommandTest {
         String afterRemoveConsoleOutput = testOutPutWriter.getOutput();
 
         // Assert
-        assertEquals("Item has been removed", removedConsoleOutput);
+        assertEquals("Item has been removed.", removedConsoleOutput);
         assertEquals("There are no files to see here!", afterRemoveConsoleOutput);
     }
 
