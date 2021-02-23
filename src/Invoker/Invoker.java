@@ -30,8 +30,12 @@ public class Invoker {
                 }
 
             } else {
-                command.execute(userInput.split(" ")[1], outputWriter);
-                return;
+                try {
+                    command.execute(userInput.split(" ")[1], outputWriter);
+                    return;
+                }catch (Exception e){
+                    outputWriter.printLine("Wrong Input");
+                }
             }
         } else {
             outputWriter.printLine("Command not found");
