@@ -2,6 +2,7 @@ package Test;
 
 import Console.Console;
 import org.junit.jupiter.api.Test;
+import Console.TestOutPutWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
