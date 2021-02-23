@@ -49,4 +49,36 @@ class DIRCommandTest {
         // Assert
         assertEquals("There are no files to see here!", consoleOutput);
     }
+
+    @Test
+    void DirTestWithsTwoDirectory() {
+        // Arrange
+        Console testConsole = new Console();
+        String newDirName1 = "newDir";
+        String newDirName2 = "newDirTheSecond";
+        TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
+        testConsole.setOutputWriter(testOutPutWriter);
+
+        // Act
+        testConsole.setToProcess(false);
+        testConsole.Start();
+        testConsole.setUserInput("mkdir " + newDirName1);
+        testConsole.runCommand();
+        testConsole.setUserInput("dir");
+        testConsole.runCommand();
+        String consoleOutput1 = testOutPutWriter.getOutput();
+        testConsole.setToProcess(false);
+        testConsole.Start();
+        testConsole.setUserInput("mkdir " + newDirName2);
+        testConsole.runCommand();
+        testConsole.setUserInput("dir");
+        testConsole.runCommand();
+        String consoleOutput2 = testOutPutWriter.getOutput();
+
+        testConsole.setUserInput("exit");
+
+        // Assert
+        assertEquals(newDirName1, consoleOutput1);
+        assertEquals(newDirName2, consoleOutput2);
+    }
 }
