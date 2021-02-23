@@ -14,7 +14,9 @@ class CDCommandTest {
 
         String newDirName = "newDir";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
+
         testConsole.setOutputWriter(testOutPutWriter);
+        testConsole.getOutputWriter();
 
         // Act
         testConsole.setToProcess(false);
@@ -30,7 +32,7 @@ class CDCommandTest {
 
 
         // Assert
-        assertEquals(newDirName, consoleOutput);
+        assertEquals("There are no files to see here!", consoleOutput);
 
     }
 }
