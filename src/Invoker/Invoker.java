@@ -1,6 +1,6 @@
 package Invoker;
 
-import Command.*;
+import Command.Command;
 import Console.ConsoleOutputWriter;
 import Factory.CommandFactory;
 import Parser.Parser;
@@ -19,10 +19,10 @@ public class Invoker {
         Command command = Parser.parseCommand(userInput.toLowerCase());
         ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
         if (command != null) {
-            if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass()) || VERCommand.class.equals(command.getClass()) || CLSCommand.class.equals(command.getClass())) {
+            if (commands.get("exit").getClass().equals(command.getClass()) || commands.get("dir").getClass().equals(command.getClass()) || commands.get("ver").getClass().equals(command.getClass()) || commands.get("cls").getClass().equals(command.getClass())) {
                 command.execute("", outputWriter);
                 return;
-            } else if (RENCommand.class.equals(command.getClass())) {
+            } else if (commands.get("ren").getClass().equals(command.getClass())) {
                 command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
             } else {
                 command.execute(userInput.split(" ")[1], outputWriter);
