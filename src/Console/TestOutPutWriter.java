@@ -1,6 +1,4 @@
-package Test;
-
-import Console.IOutputWriter;
+package Console;
 
 public class TestOutPutWriter implements IOutputWriter {
 

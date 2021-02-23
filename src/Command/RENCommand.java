@@ -12,6 +12,7 @@ public class RENCommand extends Command {
             if (fileSystemItem.getName().equals(input.split(" ")[0])) {
                 if (input.split(" ")[1] != null) {
                     fileSystemItem.setName(input.split(" ")[1]);
+                    outputWriter.printLine(input.split(" ")[0] + " has been renamed to " + input.split(" ")[1]);
                     return;
                 }else {
                     outputWriter.printLine("Directory not found!");
