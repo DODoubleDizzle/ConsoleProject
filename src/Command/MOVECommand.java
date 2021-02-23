@@ -2,13 +2,11 @@ package Command;
 
 import Console.IOutputWriter;
 
-public class CLSCommand extends Command {
+public class MOVECommand extends Command{
+
     @Override
     public void execute(String input, IOutputWriter outputWriter) {
 
 
     }
-
-        //Clears the Console
-    }
-
+}
