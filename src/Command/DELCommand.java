@@ -15,5 +15,6 @@ public class DELCommand extends Command {
                 return;
             }
         }
+        outputWriter.printLine("Item has not been found.");
     }
 }

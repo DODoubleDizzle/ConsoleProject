@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DELCommandTest {
     @Test
-    void noDirectoryFound() {
+    void deleteFile() {
         // Arrange
         Console testConsole = new Console();
 
@@ -30,5 +30,26 @@ class DELCommandTest {
         // Assert
         assertEquals("Item has been removed", removedConsoleOutput);
         assertEquals("There are no files to see here!", afterRemoveConsoleOutput);
+    }
+
+    @Test
+    void deleteNonExistingFile() {
+        // Arrange
+        Console testConsole = new Console();
+
+        String newDirName = "dirToDelete";
+        TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
+        testConsole.setOutputWriter(testOutPutWriter);
+
+        // Act
+        testConsole.setToProcess(false);
+        testConsole.Start();
+        testConsole.setUserInput("del " + newDirName);
+        testConsole.runCommand();
+        String removedConsoleOutput = testOutPutWriter.getOutput();
+
+        // Assert
+        assertEquals("Item has not been found.", removedConsoleOutput);
+
     }
 }
