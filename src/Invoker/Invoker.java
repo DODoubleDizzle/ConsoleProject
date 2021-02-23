@@ -1,7 +1,7 @@
 package Invoker;
 
 import Command.Command;
-import Console.ConsoleOutputWriter;
+import Console.IOutputWriter;
 import Factory.CommandFactory;
 import Parser.Parser;
 
@@ -17,7 +17,6 @@ public class Invoker {
 
     public void executeCommand(String userInput, IOutputWriter outputWriter) {
         Command command = Parser.parseCommand(userInput.toLowerCase());
-        ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
         if (command != null) {
             if (commands.get("exit").getClass().equals(command.getClass()) || commands.get("dir").getClass().equals(command.getClass()) || commands.get("ver").getClass().equals(command.getClass()) || commands.get("cls").getClass().equals(command.getClass())) {
                 command.execute("", outputWriter);
