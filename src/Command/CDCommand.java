@@ -1,13 +1,14 @@
 package Command;
 
 import Console.Console;
+import Console.IOutputWriter;
 import FileSystem.Directory;
 import FileSystem.FileSystemItem;
 
 public class CDCommand extends Command {
 
     @Override
-    public void execute(String input) {
+    public void execute(String input, IOutputWriter outputWriter) {
         if(input.equals("..")){
             Console.setCurrentDirectory(Console.getCurrentDirectory().getParentDirectory());
         }else{
@@ -17,7 +18,7 @@ public class CDCommand extends Command {
                     return;
                 }
             }
-            System.out.println("no");
+            System.out.println("Directory not found");
         }
     }
 }

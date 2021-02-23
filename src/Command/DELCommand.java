@@ -2,16 +2,16 @@ package Command;
 
 
 import Console.Console;
+import Console.IOutputWriter;
 import FileSystem.FileSystemItem;
-import Console.ConsoleOutputWriter;
 
 public class DELCommand extends Command {
     @Override
-    public void execute(String input) {
+    public void execute(String input, IOutputWriter outputWriter) {
         for (FileSystemItem fileSystemItem : Console.getCurrentDirectory().getFileSystemItems()) {
             if(fileSystemItem.getName().equals(input)){
                 Console.getCurrentDirectory().getFileSystemItems().remove(fileSystemItem);
-                new ConsoleOutputWriter().printLine("Item has been removed.");
+                outputWriter.printLine("Item has been removed.");
                 return;
             }
         }

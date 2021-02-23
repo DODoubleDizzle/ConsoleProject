@@ -2,19 +2,19 @@ package Command;
 
 
 import Console.Console;
-import Console.ConsoleOutputWriter;
+import Console.IOutputWriter;
 import FileSystem.FileSystemItem;
 
 public class DIRCommand extends Command {
     @Override
-    public void execute(String input) {
+    public void execute(String input, IOutputWriter outputWriter) {
         if(Console.getCurrentDirectory().getFileSystemItems().size() != 0) {
             for (FileSystemItem fileSystemItem : Console.getCurrentDirectory().getFileSystemItems()) {
-                new ConsoleOutputWriter().printLine(fileSystemItem.getName());
+                outputWriter.printLine(fileSystemItem.getName());
                 return;
             }
         } else {
-            new ConsoleOutputWriter().printLine("There are no files to see here!");
+            outputWriter.printLine("There are no files to see here!");
         }
     }
 }

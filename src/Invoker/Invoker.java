@@ -23,14 +23,15 @@ public class Invoker {
 
     public void executeCommand(String userInput) {
         Command command = Parser.parseCommand(userInput.toLowerCase());
+        ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
         if (command != null) {
             if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass()) || VERCommand.class.equals(command.getClass()) || CLSCommand.class.equals(command.getClass())) {
-                command.execute("");
+                command.execute("", outputWriter);
                 return;
             } else if (RENCommand.class.equals(command.getClass())) {
-                command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2]);
+                command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
             } else {
-                command.execute(userInput.split(" ")[1]);
+                command.execute(userInput.split(" ")[1], outputWriter);
                 return;
             }
         } else {
