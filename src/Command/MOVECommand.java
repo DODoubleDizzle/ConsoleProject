@@ -6,7 +6,7 @@ import FileSystem.File;
 import FileSystem.FileSystemItem;
 
 public class MOVECommand extends Command {
-
+// TODO: fix DIR Command
     @Override
     public void execute(String input, IOutputWriter outputWriter) {
 
