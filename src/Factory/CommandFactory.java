@@ -1,11 +1,21 @@
 package Factory;
 
-import java.util.ArrayList;
-import java.util.List;
+import Command.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CommandFactory {
-    public static List<String> getCommands(){
-        List<String> commandList = new ArrayList();
+    public static Map<String, Command> getCommands(){
+        Map<String, Command> commandList = new HashMap<>();
+        commandList.put("exit", new ExitCommand());
+        commandList.put("cd", new CDCommand());
+        commandList.put("dir", new DIRCommand());
+        commandList.put("mkdir", new MKDIRCommand());
+        commandList.put("del", new DELCommand());
+        commandList.put("ver", new VERCommand());
+        commandList.put("ren", new RENCommand());
+        commandList.put("cls", new CLSCommand());
         return commandList;
     }
 }

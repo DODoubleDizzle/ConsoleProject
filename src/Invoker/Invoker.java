@@ -2,6 +2,7 @@ package Invoker;
 
 import Command.*;
 import Console.ConsoleOutputWriter;
+import Factory.CommandFactory;
 import Parser.Parser;
 
 import java.util.HashMap;
@@ -11,14 +12,7 @@ public class Invoker {
     public static Map<String, Command> commands = new HashMap<>();
 
     public Invoker() {
-        commands.put("exit", new ExitCommand());
-        commands.put("cd", new CDCommand());
-        commands.put("dir", new DIRCommand());
-        commands.put("mkdir", new MKDIRCommand());
-        commands.put("del", new DELCommand());
-        commands.put("ver", new VERCommand());
-        commands.put("ren", new RENCommand());
-        commands.put("cls", new CLSCommand());
+        commands = CommandFactory.getCommands();
     }
 
     public void executeCommand(String userInput) {
