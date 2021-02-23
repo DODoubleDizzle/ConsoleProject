@@ -53,4 +53,24 @@ class CDCommandTest {
         // Assert
         assertEquals("Directory not found!", consoleOutput);
     }
+
+    @Test
+    void cdToRoot() {
+        // Arrange
+        Console testConsole = new Console();
+
+        TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
+        testConsole.setOutputWriter(testOutPutWriter);
+
+        // Act
+        testConsole.setToProcess(false);
+        testConsole.Start();
+        testConsole.setUserInput("cd ..");
+        testConsole.runCommand();
+
+        String consoleOutput = testOutPutWriter.getOutput();
+
+        // Assert
+        assertEquals("Root Directory already reached", consoleOutput);
+    }
 }
