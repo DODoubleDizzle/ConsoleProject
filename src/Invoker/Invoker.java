@@ -22,13 +22,11 @@ public class Invoker {
                 command.execute("", outputWriter);
                 return;
             } else if (commands.get("ren").getClass().equals(command.getClass()) || commands.get("move").getClass().equals(command.getClass())) {
-
                 try {
                     command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
                 } catch (Exception e) {
-                    System.out.println("Wrong Input");
+                    e.printStackTrace();
                 }
-
             } else {
                 try {
                     command.execute(userInput.split(" ")[1], outputWriter);

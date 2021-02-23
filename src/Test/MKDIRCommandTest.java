@@ -43,6 +43,6 @@ class MKDIRCommandTest {
         testConsole.setUserInput("exit");
 
         // Assert
-        assertEquals("", consoleOutput);
+        assertEquals("Wrong Input", consoleOutput);
     }
 }
