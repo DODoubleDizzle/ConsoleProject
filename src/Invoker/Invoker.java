@@ -18,12 +18,13 @@ public class Invoker {
         commands.put("del", new DELCommand());
         commands.put("ver", new VERCommand());
         commands.put("ren", new RENCommand());
+        commands.put("cls", new CLSCommand());
     }
 
     public void executeCommand(String userInput) {
         Command command = Parser.parseCommand(userInput.toLowerCase());
         if (command != null) {
-            if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass()) || VERCommand.class.equals(command.getClass())) {
+            if (ExitCommand.class.equals(command.getClass()) || DIRCommand.class.equals(command.getClass()) || VERCommand.class.equals(command.getClass()) || CLSCommand.class.equals(command.getClass())) {
                 command.execute("");
                 return;
             } else if (RENCommand.class.equals(command.getClass())) {
