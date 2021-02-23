@@ -15,6 +15,7 @@ public class Console {
     String userInput;
     static Directory currentDirectory;
     Directory rootDirectory;
+    IOutputWriter outputWriter = new ConsoleOutputWriter();
 
     public Console() {
     }
@@ -38,11 +39,15 @@ public class Console {
         currentDirectory = rootDirectory;
 
         while (true) {
-            new ConsoleOutputWriter().print(drive.getLabel() + currentDirectory.getPath() + "> ");
+            outputWriter.print(drive.getLabel() + currentDirectory.getPath() + "> ");
             userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
-            Invoker invoker = new Invoker();
-            invoker.executeCommand(userInput);
+            runCommand();
         }
+    }
+
+    public void runCommand(){
+        Invoker invoker = new Invoker();
+        invoker.executeCommand(userInput);
     }
 
     public static Directory getCurrentDirectory() {
@@ -57,4 +62,7 @@ public class Console {
         this.userInput = userInput;
     }
 
+    public void setOutputWriter(IOutputWriter outputWriter) {
+        this.outputWriter = outputWriter;
+    }
 }
