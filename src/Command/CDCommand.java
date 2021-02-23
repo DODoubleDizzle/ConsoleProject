@@ -10,7 +10,11 @@ public class CDCommand extends Command {
     @Override
     public void execute(String input, IOutputWriter outputWriter) {
         if(input.equals("..")){
-            Console.setCurrentDirectory(Console.getCurrentDirectory().getParentDirectory());
+            if(Console.getCurrentDirectory().getParentDirectory() != null) {
+                Console.setCurrentDirectory(Console.getCurrentDirectory().getParentDirectory());
+            }else{
+                outputWriter.printLine("Root Directory already reached");
+            }
         }else{
             for(FileSystemItem fileSystemItem : Console.getCurrentDirectory().getFileSystemItems()){
                 if(fileSystemItem.getName().equals(input)){

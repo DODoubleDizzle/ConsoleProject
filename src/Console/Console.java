@@ -72,4 +72,8 @@ public class Console {
     public IOutputWriter getOutputWriter() {
         return outputWriter;
     }
+
+    public Directory getRootDirectory() {
+        return rootDirectory;
+    }
 }
