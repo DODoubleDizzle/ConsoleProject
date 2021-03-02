@@ -21,39 +21,48 @@ public class CLRCommand extends  Command {
         String changeText = "Text color changed.";
         switch (input) {
             case "red": {
-                System.out.println(ANSI_RED + changeText);
+                String color = ANSI_RED;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "blue": {
-                System.out.println(ANSI_BLUE + changeText);
+                String color = ANSI_BLUE;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "green": {
-                System.out.println(ANSI_GREEN + changeText);
+                String color = ANSI_GREEN;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "yellow": {
-                System.out.println(ANSI_YELLOW + changeText);
+                String color = ANSI_YELLOW;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "black": {
-                System.out.println(ANSI_BLACK + changeText);
+                String color = ANSI_BLACK;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "white": {
-                System.out.println(ANSI_WHITE + changeText);
+                String color = ANSI_WHITE;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "purple": {
-                System.out.println(ANSI_PURPLE + changeText);
+                String color = ANSI_PURPLE;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             case "cyan": {
-                System.out.println(ANSI_CYAN + changeText);
+                String color = ANSI_CYAN;
+                outputWriter.printLine(color + changeText);
                 break;
             }
             default: {
-                System.out.println(ANSI_RESET + "Something went wrong!");
+                String color = ANSI_RESET;
+                outputWriter.printLine("Something went wrong!");
                 break;
             }
         }

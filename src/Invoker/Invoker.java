@@ -1,7 +1,7 @@
 package Invoker;
 
 import Command.Command;
-import Console.ConsoleOutputWriter;
+import Console.IOutputWriter;
 import Factory.CommandFactory;
 import Parser.Parser;
 
@@ -15,21 +15,28 @@ public class Invoker {
         commands = CommandFactory.getCommands();
     }
 
-    public void executeCommand(String userInput) {
+    public void executeCommand(String userInput, IOutputWriter outputWriter) {
         Command command = Parser.parseCommand(userInput.toLowerCase());
-        ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
         if (command != null) {
             if (commands.get("exit").getClass().equals(command.getClass()) || commands.get("dir").getClass().equals(command.getClass()) || commands.get("ver").getClass().equals(command.getClass()) || commands.get("cls").getClass().equals(command.getClass())) {
                 command.execute("", outputWriter);
                 return;
-            } else if (commands.get("ren").getClass().equals(command.getClass())) {
-                command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
+            } else if (commands.get("ren").getClass().equals(command.getClass()) || commands.get("move").getClass().equals(command.getClass())) {
+                try {
+                    command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
+                } catch (Exception e) {
+                    outputWriter.printLine("Wrong Input");
+                }
             } else {
-                command.execute(userInput.split(" ")[1], outputWriter);
-                return;
+                try {
+                    command.execute(userInput.split(" ")[1], outputWriter);
+                    return;
+                }catch (Exception e){
+                    outputWriter.printLine("Wrong Input");
+                }
             }
         } else {
-            new ConsoleOutputWriter().printLine("Command not found");
+            outputWriter.printLine("Command not found");
         }
     }
 }

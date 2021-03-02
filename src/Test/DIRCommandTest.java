@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CDCommandTest {
+class DIRCommandTest {
 
     @Test
-    void changeOneDirectory() {
+    void DirTestWithDirectory() {
         // Arrange
         Console testConsole = new Console();
-
         String newDirName = "newDir";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
         testConsole.setOutputWriter(testOutPutWriter);
@@ -22,22 +21,19 @@ class CDCommandTest {
         testConsole.Start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
-        testConsole.setUserInput("cd " + newDirName);
-        testConsole.runCommand();
         testConsole.setUserInput("dir");
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();
+        testConsole.setUserInput("exit");
 
         // Assert
-        assertEquals("There are no files to see here!", consoleOutput);
-
+        assertEquals(newDirName, consoleOutput);
     }
 
     @Test
-    void noDirectoryFound() {
+    void DirTestWithoutDirectory() {
         // Arrange
         Console testConsole = new Console();
-
         String newDirName = "newDir";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
         testConsole.setOutputWriter(testOutPutWriter);
@@ -45,32 +41,44 @@ class CDCommandTest {
         // Act
         testConsole.setToProcess(false);
         testConsole.Start();
-        testConsole.setUserInput("cd " + newDirName);
+        testConsole.setUserInput("dir");
         testConsole.runCommand();
-
         String consoleOutput = testOutPutWriter.getOutput();
+        testConsole.setUserInput("exit");
 
         // Assert
-        assertEquals("Directory not found!", consoleOutput);
+        assertEquals("There are no files to see here!", consoleOutput);
     }
 
     @Test
-    void cdToRoot() {
+    void DirTestWithsTwoDirectory() {
         // Arrange
         Console testConsole = new Console();
-
+        String newDirName1 = "newDir";
+        String newDirName2 = "newDirTheSecond";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
         testConsole.setOutputWriter(testOutPutWriter);
 
         // Act
         testConsole.setToProcess(false);
         testConsole.Start();
-        testConsole.setUserInput("cd ..");
+        testConsole.setUserInput("mkdir " + newDirName1);
         testConsole.runCommand();
+        testConsole.setUserInput("dir");
+        testConsole.runCommand();
+        String consoleOutput1 = testOutPutWriter.getOutput();
+        testConsole.setToProcess(false);
+        testConsole.Start();
+        testConsole.setUserInput("mkdir " + newDirName2);
+        testConsole.runCommand();
+        testConsole.setUserInput("dir");
+        testConsole.runCommand();
+        String consoleOutput2 = testOutPutWriter.getOutput();
 
-        String consoleOutput = testOutPutWriter.getOutput();
+        testConsole.setUserInput("exit");
 
         // Assert
-        assertEquals("Root Directory already reached", consoleOutput);
+        assertEquals(newDirName1, consoleOutput1);
+        assertEquals(newDirName2, consoleOutput2);
     }
 }

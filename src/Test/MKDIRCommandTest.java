@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CDCommandTest {
+class MKDIRCommandTest {
 
     @Test
-    void changeOneDirectory() {
+    void MKDIRWithParameter() {
         // Arrange
         Console testConsole = new Console();
-
         String newDirName = "newDir";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
         testConsole.setOutputWriter(testOutPutWriter);
@@ -22,22 +21,16 @@ class CDCommandTest {
         testConsole.Start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
-        testConsole.setUserInput("cd " + newDirName);
-        testConsole.runCommand();
-        testConsole.setUserInput("dir");
-        testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();
+        testConsole.setUserInput("exit");
 
         // Assert
-        assertEquals("There are no files to see here!", consoleOutput);
-
+        assertEquals("", consoleOutput);
     }
-
     @Test
-    void noDirectoryFound() {
+    void MKDIRWithoutParameter() {
         // Arrange
         Console testConsole = new Console();
-
         String newDirName = "newDir";
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
         testConsole.setOutputWriter(testOutPutWriter);
@@ -45,32 +38,12 @@ class CDCommandTest {
         // Act
         testConsole.setToProcess(false);
         testConsole.Start();
-        testConsole.setUserInput("cd " + newDirName);
+        testConsole.setUserInput("mkdir");
         testConsole.runCommand();
-
         String consoleOutput = testOutPutWriter.getOutput();
+        testConsole.setUserInput("exit");
 
         // Assert
-        assertEquals("Directory not found!", consoleOutput);
-    }
-
-    @Test
-    void cdToRoot() {
-        // Arrange
-        Console testConsole = new Console();
-
-        TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
-        testConsole.setOutputWriter(testOutPutWriter);
-
-        // Act
-        testConsole.setToProcess(false);
-        testConsole.Start();
-        testConsole.setUserInput("cd ..");
-        testConsole.runCommand();
-
-        String consoleOutput = testOutPutWriter.getOutput();
-
-        // Assert
-        assertEquals("Root Directory already reached", consoleOutput);
+        assertEquals("Wrong Input", consoleOutput);
     }
 }

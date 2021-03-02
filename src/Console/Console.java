@@ -13,9 +13,10 @@ public class Console {
     FileSystemItem fileSystemItem;
     Drive drive;
     String userInput;
-    static Directory currentDirectory;
+    public static Directory currentDirectory;
     Directory rootDirectory;
     IOutputWriter outputWriter = new ConsoleOutputWriter();
+    boolean toProcess = true;
 
     public Console() {
     }
@@ -35,10 +36,8 @@ public class Console {
     }
 
     private void processInput() throws IOException {
-
         currentDirectory = rootDirectory;
-
-        while (true) {
+        while (toProcess) {
             outputWriter.print(drive.getLabel() + currentDirectory.getPath() + "> ");
             userInput = new BufferedReader(new InputStreamReader(System.in)).readLine();
             runCommand();
@@ -47,7 +46,7 @@ public class Console {
 
     public void runCommand(){
         Invoker invoker = new Invoker();
-        invoker.executeCommand(userInput);
+        invoker.executeCommand(userInput, outputWriter);
     }
 
     public static Directory getCurrentDirectory() {
@@ -64,5 +63,17 @@ public class Console {
 
     public void setOutputWriter(IOutputWriter outputWriter) {
         this.outputWriter = outputWriter;
+    }
+
+    public void setToProcess(boolean toProcess) {
+        this.toProcess = toProcess;
+    }
+
+    public IOutputWriter getOutputWriter() {
+        return outputWriter;
+    }
+
+    public Directory getRootDirectory() {
+        return rootDirectory;
     }
 }
