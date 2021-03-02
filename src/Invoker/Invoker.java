@@ -28,11 +28,23 @@ public class Invoker {
                     e.printStackTrace();
                     outputWriter.printLine("Wrong Input");
                 }
+            } else if (commands.get("mkfile").getClass().equals(command.getClass())) {
+                try {
+                    String output = "";
+                    for(String temp : userInput.split(" ")){
+                        if(!temp.equals(userInput.split(" ")[0])){
+                            output +=  temp + " ";
+                        }
+                    }
+                    command.execute(output, outputWriter);
+                } catch (Exception e) {
+                    outputWriter.printLine("Wrong Input");
+                }
             } else {
                 try {
                     command.execute(userInput.split(" ")[1], outputWriter);
                     return;
-                }catch (Exception e){
+                } catch (Exception e) {
                     outputWriter.printLine("Wrong Input");
                 }
             }
