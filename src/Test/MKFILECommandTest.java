@@ -19,9 +19,10 @@ class MKFILECommandTest {
         // Act
         testConsole.setToProcess(false);
         testConsole.Start();
-        testConsole.setUserInput("mkfile " + newFileName);
+        testConsole.setUserInput("mkfile " + newFileName + " blablabla blabla");
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();
+
         testConsole.setUserInput("exit");
 
         // Assert
