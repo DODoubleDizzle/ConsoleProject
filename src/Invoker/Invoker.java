@@ -21,9 +21,21 @@ public class Invoker {
             if (commands.get("exit").getClass().equals(command.getClass()) || commands.get("dir").getClass().equals(command.getClass()) || commands.get("ver").getClass().equals(command.getClass()) || commands.get("cls").getClass().equals(command.getClass())) {
                 command.execute("", outputWriter);
                 return;
-            } else if (commands.get("ren").getClass().equals(command.getClass()) || commands.get("move").getClass().equals(command.getClass()) || commands.get("mkfile").getClass().equals(command.getClass())) {
+            } else if (commands.get("ren").getClass().equals(command.getClass()) || commands.get("move").getClass().equals(command.getClass())) {
                 try {
                     command.execute(userInput.split(" ")[1] + " " + userInput.split(" ")[2], outputWriter);
+                } catch (Exception e) {
+                    outputWriter.printLine("Wrong Input");
+                }
+            } else if (commands.get("mkfile").getClass().equals(command.getClass())) {
+                try {
+                    String output = "";
+                    for(String temp : userInput.split(" ")){
+                        if(!temp.equals(userInput.split(" ")[0])){
+                            output +=  temp + " ";
+                        }
+                    }
+                    command.execute(output, outputWriter);
                 } catch (Exception e) {
                     outputWriter.printLine("Wrong Input");
                 }
@@ -31,7 +43,7 @@ public class Invoker {
                 try {
                     command.execute(userInput.split(" ")[1], outputWriter);
                     return;
-                }catch (Exception e){
+                } catch (Exception e) {
                     outputWriter.printLine("Wrong Input");
                 }
             }

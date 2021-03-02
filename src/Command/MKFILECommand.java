@@ -11,7 +11,13 @@ public class MKFILECommand extends Command {
 
         File file = new File();
         file.setName(input.split(" ")[0]);
-        file.setContent(input.split(" ")[1]);
+        String content = "";
+        for(String temp : input.split(" ")){
+            if(!temp.equals(input.split(" ")[0])){
+                content += temp + " ";
+            }
+        }
+        file.setContent(content);
         file.setParentDirectory(Console.getCurrentDirectory());
         Console.getCurrentDirectory().addFileSystemItem(file);
         outputWriter.printLine("File " + input.split(" ")[0] + " has been created.");
