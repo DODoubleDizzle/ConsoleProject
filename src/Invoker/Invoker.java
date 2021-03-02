@@ -29,13 +29,15 @@ public class Invoker {
                 }
             } else if (commands.get("mkfile").getClass().equals(command.getClass())) {
                 try {
-                    String output = "";
-                    for(String temp : userInput.split(" ")){
-                        if(!temp.equals(userInput.split(" ")[0])){
-                            output +=  temp + " ";
+                    if(userInput.split(" ")[2] != "") {
+                        String output = "";
+                        for (String temp : userInput.split(" ")) {
+                            if (!temp.equals(userInput.split(" ")[0])) {
+                                output += temp + " ";
+                            }
                         }
+                        command.execute(output, outputWriter);
                     }
-                    command.execute(output, outputWriter);
                 } catch (Exception e) {
                     outputWriter.printLine("Wrong Input");
                 }
