@@ -9,15 +9,17 @@ public class CDCommand extends Command {
 
     @Override
     public void execute(String input, IOutputWriter outputWriter) {
-        if(input.equals("..")){
-            if(Console.getCurrentDirectory().getParentDirectory() != null) {
+        if (input.equals("..")) {
+            if (Console.getCurrentDirectory().getParentDirectory() != null) {
                 Console.setCurrentDirectory(Console.getCurrentDirectory().getParentDirectory());
-            }else{
+            } else {
                 outputWriter.printLine("Root Directory already reached");
             }
-        }else{
-            for(FileSystemItem fileSystemItem : Console.getCurrentDirectory().getFileSystemItems()){
-                if(fileSystemItem.getName().equals(input)){
+        } else if (input.equals("\\")) {
+            Console.setCurrentDirectory(Console.getRootDirectory());
+        } else {
+            for (FileSystemItem fileSystemItem : Console.getCurrentDirectory().getFileSystemItems()) {
+                if (fileSystemItem.getName().equals(input)) {
                     Console.setCurrentDirectory((Directory) fileSystemItem);
                     return;
                 }
@@ -26,3 +28,4 @@ public class CDCommand extends Command {
         }
     }
 }
+
