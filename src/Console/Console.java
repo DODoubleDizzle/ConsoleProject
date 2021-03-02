@@ -14,7 +14,7 @@ public class Console {
     Drive drive;
     String userInput;
     public static Directory currentDirectory;
-    Directory rootDirectory;
+    public static Directory rootDirectory;
     IOutputWriter outputWriter = new ConsoleOutputWriter();
     boolean toProcess = true;
 
@@ -73,7 +73,7 @@ public class Console {
         return outputWriter;
     }
 
-    public Directory getRootDirectory() {
+    public static Directory getRootDirectory() {
         return rootDirectory;
     }
 }
