@@ -19,6 +19,8 @@ public class CommandFactory {
         commandList.put("clr", new CLRCommand());
         commandList.put("move", new MOVECommand());
         commandList.put("mkfile", new MKFILECommand());
+        commandList.put("more", new MORECommand());
+        commandList.put("type", new TYPECommand());
         return commandList;
     }
 }
