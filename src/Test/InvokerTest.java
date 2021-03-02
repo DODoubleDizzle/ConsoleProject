@@ -4,7 +4,7 @@ import Console.Console;
 import Console.TestOutPutWriter;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InvokerTest {
 
@@ -20,7 +20,7 @@ class InvokerTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         String consoleOutput1 = testOutPutWriter.getOutput();

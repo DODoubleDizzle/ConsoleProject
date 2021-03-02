@@ -4,7 +4,7 @@ import Console.Console;
 import Console.TestOutPutWriter;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MKFILECommandTest {
 
@@ -18,7 +18,7 @@ class MKFILECommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkfile " + newFileName + " blablabla blabla");
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();

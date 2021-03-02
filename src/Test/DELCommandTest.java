@@ -18,7 +18,7 @@ class DELCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         testConsole.setUserInput("del " + newDirName);
@@ -44,7 +44,7 @@ class DELCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("del " + newDirName);
         testConsole.runCommand();
         String removedConsoleOutput = testOutPutWriter.getOutput();

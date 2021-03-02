@@ -1,9 +1,10 @@
 package Test;
 
-import Console.*;
+import Console.Console;
+import Console.TestOutPutWriter;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MOVECommandTest {
 
@@ -19,7 +20,7 @@ class MOVECommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + dirName);
         testConsole.runCommand();
         testConsole.setUserInput("cd " + dirName);

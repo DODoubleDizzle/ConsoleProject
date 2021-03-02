@@ -21,7 +21,7 @@ public class Console {
     public Console() {
     }
 
-    public void Start() {
+    public void start() {
         try {
             drive = new Drive();
             drive.setLabel("C:\\");

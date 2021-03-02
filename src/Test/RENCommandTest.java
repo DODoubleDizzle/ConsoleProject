@@ -20,7 +20,7 @@ class RENCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + dirName);
         testConsole.runCommand();
         testConsole.setUserInput("ren " + dirName + " " + newDirName);
@@ -43,7 +43,7 @@ class RENCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + dirName);
         testConsole.runCommand();
         testConsole.setUserInput("ren " + dirName);
@@ -65,7 +65,7 @@ class RENCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir directoryName");
         testConsole.runCommand();
         testConsole.setUserInput("ren " + newDirName);
@@ -87,7 +87,7 @@ class RENCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + dirName);
         testConsole.runCommand();
         testConsole.setUserInput("ren ");

@@ -18,7 +18,7 @@ class DIRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         testConsole.setUserInput("dir");
@@ -40,7 +40,7 @@ class DIRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("dir");
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();
@@ -61,14 +61,14 @@ class DIRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName1);
         testConsole.runCommand();
         testConsole.setUserInput("dir");
         testConsole.runCommand();
         String consoleOutput1 = testOutPutWriter.getOutput();
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName2);
         testConsole.runCommand();
         testConsole.setUserInput("dir");

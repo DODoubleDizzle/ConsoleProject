@@ -1,10 +1,10 @@
 package Test;
 
 import Console.Console;
-import org.junit.jupiter.api.Test;
 import Console.TestOutPutWriter;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CLRCommandTest {
     @Test
@@ -17,7 +17,7 @@ class CLRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("clr " + color);
         testConsole.runCommand();
 
@@ -37,7 +37,7 @@ class CLRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("clr " + color);
         testConsole.runCommand();
 

@@ -18,7 +18,7 @@ class MKDIRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();
@@ -37,7 +37,7 @@ class MKDIRCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir");
         testConsole.runCommand();
         String consoleOutput = testOutPutWriter.getOutput();

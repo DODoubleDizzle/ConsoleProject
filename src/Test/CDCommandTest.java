@@ -19,7 +19,7 @@ class CDCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         testConsole.setUserInput("cd " + newDirName);
@@ -44,7 +44,7 @@ class CDCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("cd " + newDirName);
         testConsole.runCommand();
 
@@ -64,7 +64,7 @@ class CDCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("cd ..");
         testConsole.runCommand();
 
@@ -84,7 +84,7 @@ class CDCommandTest {
 
         // Act
         testConsole.setToProcess(false);
-        testConsole.Start();
+        testConsole.start();
         testConsole.setUserInput("cd \\");
         testConsole.runCommand();
 
