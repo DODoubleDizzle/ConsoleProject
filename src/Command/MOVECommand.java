@@ -16,6 +16,7 @@ public class MOVECommand extends Command {
                 }
             }
             Console.getCurrentDirectory().getFileSystemItems().remove(toRemove);
+            outputWriter.printLine("File has been moved");
         } else {
             System.out.println("Coming soon!");
         }
