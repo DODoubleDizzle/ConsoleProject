@@ -40,4 +40,12 @@ public abstract class FileSystemItem {
             getPathRecursion(directory.parentDirectory);
         }
     }
+
+    public String getContent() {
+        return "";
+    }
+
+    public void setContent(String content) {
+        return;
+    }
 }
