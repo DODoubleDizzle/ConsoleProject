@@ -16,6 +16,7 @@ class CDCommandTest {
         TestOutPutWriter testOutPutWriter = new TestOutPutWriter();
 
         // Act
+        testConsole.Start();
         testConsole.setUserInput("mkdir " + newDirName);
         testConsole.runCommand();
         testConsole.setUserInput("cd " + newDirName);
